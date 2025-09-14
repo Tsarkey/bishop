@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tsarkei — визитка</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Sticker cards - refined look */
+.sticker-grid a { transition: transform .12s ease, box-shadow .12s ease; }
+.sticker-grid a:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 18px 46px rgba(0,0,0,0.6); }
+.sticker-card div { min-width:120px; text-align:center; }
+@media(max-width:520px){ .sticker-card div{ min-width:100px; padding:8px 10px; } }
+
+/* Force center sticker header and paragraph */
+.stickers h3, .stickers p {
+  display: block !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 90% !important;
+}
+
+</style>
+
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="heading">
+    <h1 class="glitch" data-text="Царкей (Tsarkei)">Царкей (Tsarkei)</h1>
+    <nav class="meta">
+      <a class="meta-link" href="https://t.me/tsarkey" target="_blank">Группа: Tsarkei</a>
+      <a id="aboutMe" class="meta-link" href="#">О себе: Не найдено @Tsarkei</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="carousel" id="carousel">
+      
+      <div class="viewport" id="viewport">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="img/art1.jpg" alt="art1"></div>
+          <div class="slide"><img src="img/art2.jpg" alt="art2"></div>
+          <div class="slide"><img src="img/art3.jpg" alt="art3"></div>
+          <div class="slide"><img src="img/art4.jpg" alt="art4"></div>
+          <div class="slide"><img src="img/art5.jpg" alt="art5"></div>
+        </div>
+      </div>
+      
+      <div class="dots" id="dots" role="tablist" aria-label="Slides"></div>
+    </section>
+<!-- Стикеры (встроенные ссылки) -->
+<section class="stickers" aria-label="Стикеры" style="max-width:720px;margin:26px auto 8px;padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));box-shadow:0 12px 36px rgba(0,0,0,0.45);">
+  <h3 style="margin:0 0 10px;font-size:20px;color:#e9d9ff;font-weight:700;">Стикеры</h3>
+  <p style="margin:0 0 12px;color:rgba(255,255,255,0.7);">Нажми набор и установи стикеры:3</p>
+  <div class="sticker-grid" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;">
+    <a class="sticker-card" href="https://t.me/addstickers/Michi_error" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div style="padding:10px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(138,43,226,0.12), rgba(60,12,80,0.06));box-shadow:0 8px 22px rgba(0,0,0,0.45);color:#fff;font-weight:600;">Мичи</div>
+    </a>
+    <a class="sticker-card" href="https://t.me/addstickers/Bafou" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div style="padding:10px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(58,180,220,0.08), rgba(20,40,60,0.04));box-shadow:0 8px 22px rgba(0,0,0,0.35);color:#fff;font-weight:600;">Бафо</div>
+    </a>
+    <a class="sticker-card" href="https://t.me/addstickers/Shinkima" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div style="padding:10px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(220,80,160,0.1), rgba(40,10,30,0.04));box-shadow:0 8px 22px rgba(0,0,0,0.4);color:#fff;font-weight:600;">Шинкима</div>
+    </a>
+    <a class="sticker-card" href="https://t.me/addstickers/tyananyan" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div style="padding:10px 14px;border-radius:10px;background:linear-gradient(180deg, rgba(140,200,120,0.08), rgba(20,40,10,0.03));box-shadow:0 8px 22px rgba(0,0,0,0.32);color:#fff;font-weight:600;">Аниме-пак</div>
+    </a>
+  </div>
+</section>
+<!-- end stickers -->
+
+
+    <section class="description">
+      <h2>Tsarkei — темный фиолетовый киберпанк</h2>
+      <p class="lead">Кто убил петуха Робина?</p>
+    </section>
+
+    
+  
+<!-- Background streaming audio + single toggle button -->
+<div id="bg-music-container" style="text-align:center;margin:28px auto 40px;">
+  <audio id="bgAudio" preload="auto" autoplay loop muted></audio>
+  <button id="musicToggle" class="music-toggle muted" aria-pressed="false">Вкл звук</button>
+</div>
+
+<style>
+.music-toggle{
+  background: linear-gradient(180deg, rgba(138,43,226,0.18), rgba(60,12,80,0.12));
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight:600;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.5);
+}
+.music-toggle.muted{ opacity:0.78; filter:grayscale(.1); }
+.music-toggle.unmuted{ box-shadow: 0 12px 40px rgba(106,13,173,0.38); transform:translateY(-2px); }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const audio = document.getElementById('bgAudio');
+  const btn = document.getElementById('musicToggle');
+  // Candidate stream URLs (tries in order). You can edit this list in index.html.
+  const streams = [
+    "https://stream.laut.fm/lofi",
+    "https://ice1.somafm.com/groovesalad-128-mp3",
+    "https://stream.zeno.fm/2u1v2k8v8y0uv"
+  ];
+
+  // fallback to local music/track1.mp3 if streams fail
+  const localFallback = (function(){
+    // try to find track in music folder
+    try{
+      const list = ["music/track1.mp3","music/track1.mp3"];
+      return list[0];
+    }catch(e){ return null; }
+  })();
+
+  // Attempt to set a stream that is playable. We try sequentially with timeout.
+  function tryStreamList(list, cb){
+    let i = 0;
+    function tryOne(){
+      if(i>=list.length){ cb(false); return; }
+      const url = list[i++];
+      // try by setting src and listening for canplaythrough or loadedmetadata with timeout
+      let done = false;
+      function cleanup(){
+        audio.removeEventListener('loadedmetadata', onok);
+        audio.removeEventListener('canplaythrough', onok);
+        audio.removeEventListener('error', onerr);
+      }
+      function onok(){ if(done) return; done=true; cleanup(); cb(url); }
+      function onerr(){ if(done) return; done=true; cleanup(); tryOne(); }
+      const to = setTimeout(function(){ if(done) return; done=true; cleanup(); tryOne(); }, 2500);
+      audio.src = url;
+      try{ audio.load(); }catch(e){ clearTimeout(to); tryOne(); return; }
+      audio.addEventListener('loadedmetadata', onok);
+      audio.addEventListener('canplaythrough', onok);
+      audio.addEventListener('error', onerr);
+    }
+    tryOne();
+  }
+
+  // initialize: try streams, else fallback
+  tryStreamList(streams, function(ok){
+    if(ok){
+      console.log("stream selected:", ok);
+      // leave muted initial; will play muted autoplay
+      audio.muted = true;
+      audio.play().catch(()=>{});
+    } else {
+      // try local fallback
+      if(localFallback){
+        audio.src = localFallback;
+        audio.muted = true;
+        try{ audio.load(); audio.play().catch(()=>{}); }catch(e){}
+      }
+    }
+  });
+
+  // restore saved state
+  const saved = localStorage.getItem('bgMusicUnmuted') === '1';
+  if(saved){ audio.muted = false; btn.classList.remove('muted'); btn.classList.add('unmuted'); btn.textContent='Выкл звук'; btn.setAttribute('aria-pressed','true'); }
+  else { audio.muted = true; btn.classList.add('muted'); btn.textContent='Вкл звук'; btn.setAttribute('aria-pressed','false'); }
+
+  btn.addEventListener('click', function(){
+    if(audio.muted){
+      audio.muted = false;
+      audio.play().catch(()=>{});
+      btn.classList.remove('muted'); btn.classList.add('unmuted');
+      btn.textContent = 'Выкл звук'; btn.setAttribute('aria-pressed','true');
+      localStorage.setItem('bgMusicUnmuted','1');
+    } else {
+      audio.muted = true;
+      btn.classList.remove('unmuted'); btn.classList.add('muted');
+      btn.textContent = 'Вкл звук'; btn.setAttribute('aria-pressed','false');
+      localStorage.removeItem('bgMusicUnmuted');
+    }
+  });
+});
+</script>
+
+</main>
+
+<script src="script.js"></script>
+
+<!-- player wiring: makes play/next/prev buttons control the native audio -->
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  try{
+    var audio = document.getElementById('player') || document.querySelector('audio');
+    if(!audio) return;
+    var playBtn = document.getElementById('playBtn') || document.getElementById('playBtnBig') || document.getElementById('compactPlay') || document.querySelector('.play-button');
+    var nextBtn = document.getElementById('nextTrack') || document.getElementById('nextBtn') || document.getElementById('next');
+    var prevBtn = document.getElementById('prev') || document.getElementById('prevTrack') || document.getElementById('prevBtn');
+    if(playBtn){
+      playBtn.addEventListener('click', function(e){ e.preventDefault(); if(audio.paused){ audio.play().catch(()=>{}); this.textContent='⏸'; } else { audio.pause(); this.textContent='▶'; } });
+    }
+    var pool = [];
+    var srcs = audio.querySelectorAll('source');
+    for(var i=0;i<srcs.length;i++){ pool.push(srcs[i].getAttribute('src')); }
+    if(nextBtn){
+      nextBtn.addEventListener('click', function(e){ e.preventDefault(); var cur = pool.indexOf(audio.currentSrc || audio.src); if(cur<0) cur=0; var ni=(cur+1)%pool.length; audio.src = pool[ni]; audio.play().catch(()=>{}); });
+    }
+    if(prevBtn){
+      prevBtn.addEventListener('click', function(e){ e.preventDefault(); var cur = pool.indexOf(audio.currentSrc || audio.src); if(cur<0) cur=0; var ni=(cur-1+pool.length)%pool.length; audio.src = pool[ni]; audio.play().catch(()=>{}); });
+    }
+    audio.addEventListener('loadedmetadata', function(){ var tn = document.getElementById('trackName') || document.getElementById('trackLabel') || document.getElementById('compactTrackName'); if(tn && audio.src) tn.textContent = decodeURIComponent(audio.src.replace(/^.*\//,'')); });
+  }catch(e){ console.error(e); }
+});
+</script>
+
+
+<!-- Carousel hash-navigation safe fix: prevent default anchor jump, use history.pushState, and protect bgAudio from pause -->
+<script>
+(function(){
+  try{
+    var lastCarouselClick = 0;
+
+    function markClick(){
+      lastCarouselClick = Date.now();
+    }
+
+    // capture-phase handler: prevent default navigation for anchors inside .carousel,
+    // allow existing handlers to run (do not stop propagation).
+    document.addEventListener('click', function(e){
+      try{
+        var t = e.target;
+        // climb until document or element with href
+        while(t && t !== document){
+          // handle anchor links like <a href="#slide2">
+          if(t.tagName && t.tagName.toLowerCase() === 'a'){
+            var href = t.getAttribute('href') || '';
+            if(href.indexOf('#') === 0){
+              // ensure this anchor is inside a carousel container
+              var p = t;
+              var inside = false;
+              while(p && p !== document){
+                if(p.classList && p.classList.contains && p.classList.contains('carousel')){ inside = true; break; }
+                p = p.parentNode;
+              }
+              if(inside){
+                // prevent default jump which can cause Firefox to pause media
+                e.preventDefault();
+                markClick();
+                // Let the existing carousel click handlers run (we do not stop propagation)
+                // Update URL fragment without triggering reload; do it slightly after to allow carousel handlers to update state
+                var targetHash = href;
+                setTimeout(function(){
+                  try{ history.pushState(null, '', targetHash); }catch(err){ /* ignore */ }
+                }, 60);
+                return;
+              }
+            }
+          }
+          // handle buttons with next/prev classes/data attributes
+          if(t.tagName && t.tagName.toLowerCase() === 'button'){
+            var cls = (t.className || '').toLowerCase();
+            if(cls.indexOf('next') !== -1 || cls.indexOf('prev') !== -1 || t.getAttribute('data-slide') !== null){
+              // inside carousel? check ancestor
+              var p2 = t;
+              var inside2 = false;
+              while(p2 && p2 !== document){
+                if(p2.classList && p2.classList.contains && p2.classList.contains('carousel')){ inside2 = true; break; }
+                p2 = p2.parentNode;
+              }
+              if(inside2){
+                e.preventDefault();
+                markClick();
+                // do not change URL here; let carousel's logic handle which slide becomes active
+                return;
+              }
+            }
+          }
+          t = t.parentNode;
+        }
+      }catch(err){}
+    }, true); // capture phase
+
+    // Pause-recovery: if bgAudio is paused soon after a carousel click, try to resume
+    function findAudioElement(){
+      try{
+        // prefer id bgAudio if present
+        var a = document.getElementById('bgAudio') || document.querySelector('audio');
+        return a || null;
+      }catch(e){ return null; }
+    }
+
+    function attachRecovery(a){
+      try{
+        if(!a || a.__recoveryAttached) return;
+        a.__recoveryAttached = true;
+        a.addEventListener('pause', function(){
+          try{
+            var now = Date.now();
+            if(now - lastCarouselClick < 1200){
+              // attempt to resume shortly after
+              setTimeout(function(){ try{ a.play().catch(function(){}); }catch(e){} }, 150);
+            }
+          }catch(e){} 
+        });
+      }catch(e){}
+    }
+
+    // Attach to existing audio and observe future additions
+    function initRecovery(){
+      try{
+        var a = findAudioElement();
+        if(a) attachRecovery(a);
+        // observe DOM for added audio elements and attach
+        var mo = new MutationObserver(function(muts){
+          try{
+            muts.forEach(function(m){
+              m.addedNodes.forEach(function(node){
+                try{
+                  if(node && node.tagName && node.tagName.toLowerCase() === 'audio'){
+                    attachRecovery(node);
+                  } else if(node && node.querySelectorAll){
+                    var auds = node.querySelectorAll('audio');
+                    if(auds && auds.length){
+                      for(var i=0;i<auds.length;i++) attachRecovery(auds[i]);
+                    }
+                  }
+                }catch(e){}
+              });
+            });
+          }catch(e){}
+        });
+        mo.observe(document.body, {childList:true, subtree:true});
+      }catch(e){}
+    }
+
+    if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initRecovery);
+    else initRecovery();
+
+  }catch(err){ console.error('carousel-hash-fix error', err); }
+})();
+</script>
+<!-- end carousel hash fix -->
+
+</body>
+</html>
