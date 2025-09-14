@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="ru">
 <head>
+<!-- Open Graph / Twitter meta for rich previews (added by assistant) -->
+<meta property="og:title" content="Bishop" />
+<meta property="og:description" content="Галерея изображений, наборы стикеров и тихая фоновая музыка в тёмно-фиолетовой эстетике - с лёгкой долей загадочности." />
+<meta property="og:image" content="https://tsarkey.github.io/bishop/preview-image.png" />
+<meta property="og:url" content="https://tsarkey.github.io/bishop/" />
+<meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Bishop" />
+<meta name="twitter:description" content="Галерея изображений, наборы стикеров и тихая фоновая музыка в тёмно-фиолетовой эстетике - с лёгкой долей загадочности." />
+<meta name="twitter:image" content="https://tsarkey.github.io/bishop/preview-image.png" />
+<!-- End of OG/Twitter metas -->
+
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Tsarkei — визитка</title>
@@ -39,7 +52,7 @@
 
   <main class="main">
     <section class="carousel" id="carousel">
-      
+
       <div class="viewport" id="viewport">
         <div class="slides" id="slides">
           <div class="slide"><img src="img/art1.jpg" alt="art1"></div>
@@ -49,7 +62,7 @@
           <div class="slide"><img src="img/art5.jpg" alt="art5"></div>
         </div>
       </div>
-      
+
       <div class="dots" id="dots" role="tablist" aria-label="Slides"></div>
     </section>
 <!-- Стикеры (встроенные ссылки) -->
@@ -73,14 +86,11 @@
 </section>
 <!-- end stickers -->
 
-
     <section class="description">
       <h2>Tsarkei — темный фиолетовый киберпанк</h2>
       <p class="lead">Кто убил петуха Робина?</p>
     </section>
 
-    
-  
 <!-- Background streaming audio + single toggle button -->
 <div id="bg-music-container" style="text-align:center;margin:28px auto 40px;">
   <audio id="bgAudio" preload="auto" autoplay loop muted></audio>
@@ -216,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 </script>
 
-
 <!-- Carousel hash-navigation safe fix: prevent default anchor jump, use history.pushState, and protect bgAudio from pause -->
 <script>
 (function(){
@@ -343,7 +352,6 @@ document.addEventListener('DOMContentLoaded', function(){
 })();
 </script>
 <!-- end carousel hash fix -->
-
 
 <script src="protect.js"></script>
 </body>
