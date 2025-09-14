@@ -1,3 +1,16 @@
+
+/* --- NO-COPY PROTECTION (inserted) --- */
+html, body, .no-select, img, p, h1, h2, h3, h4, h5, h6, a, li, span, div {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+/* small helper for inputs if needed */
+input, textarea { user-select: text !important; }
+/* prevent dragging images */
+img { -webkit-user-drag: none !important; user-drag: none !important; }
+
 :root{--accent:#6a0dad;--neon:#d0aaff;--bg:#07020a}
 
 /* NEW: single-layer neon text effect (no chromatic duplication) */
